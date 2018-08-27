@@ -8,7 +8,7 @@ function header (props) {
             <img src="https://vignette.wikia.nocookie.net/videogames-fanon/images/4/44/Bulbasaur_Vines.png/revision/latest?cb=20150622002329" alt="bulbasaur"/>
         </div>
         <div className = 'header_div' >
-            <h1 id = 'header_text'>poke-plant</h1>
+            <h1 id = 'header_text'>poké-plant</h1>
             
         </div>
         <div className = 'header_div' id = 'right_img_div'>

@@ -1,0 +1,14 @@
+.pokePostcard {
+    width: 350;
+    height: 170;
+    background-color: rgb(171, 171, 241);
+    
+}
+
+# top_section {
+    display: flex;
+    height: 50%
+}
+
+
+

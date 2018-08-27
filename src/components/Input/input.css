@@ -1,0 +1,9 @@
+.subHeadDispDiv {
+    display: flex;
+    justify-content: space-evenly;
+    height: 10vh;
+    padding: 20px 0px;
+    background-color: chartreuse;
+    
+}
+
