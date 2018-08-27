@@ -32,6 +32,7 @@ class display extends Component {
 					pokeImg = {pokeImg}
 					waterPokePlant = {this.props.waterPokePlant}
 					id = {pokePlant.id}
+					deathProtocol = {this.props.deathProtocol}
 					/>
 				)
 			})

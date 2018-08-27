@@ -7,6 +7,7 @@ app.use(bodyparser.json())
 app.get('/api/pokeplants', ctrl.read)
 app.put('/api/pokeplants', ctrl.update)
 app.post('/api/pokeplants', ctrl.create)
+app.delete('/api/pokeplants/:id', ctrl.delete)
 
 
 

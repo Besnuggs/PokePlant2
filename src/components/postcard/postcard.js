@@ -35,6 +35,7 @@ class postcard extends Component {
 		})
 	}
 
+	
 	render () {
 		let {newDateWatered} = this.state
 		return (
@@ -67,7 +68,9 @@ class postcard extends Component {
 					onChange = {this.newDate}
 					/>
 					<button
-					onChange = {this.deathProtocol}
+					onClick = {() => {
+						this.props.deathProtocol(this.props.id)
+					}}
 					>R.I.P</button>
 				</section>
 			</div>

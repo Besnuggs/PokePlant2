@@ -11,7 +11,6 @@ class input extends Component {
       name: '',
       date: '',
       pokeImg: '',
-      resArr: []
     }
 
     this.handleDateChange = this.handleDateChange.bind(this)

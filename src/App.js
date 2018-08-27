@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Header from './components/header/header.js'
 import Input from './components/Input/input.js'
 import Display from './components/display/display.js'
+import Footer from './components/footer/footer.js'
 import './reset.css'
 import './App.css';
 import axios from 'axios'
@@ -17,6 +18,7 @@ class App extends Component {
 
     this.addPoke = this.addPoke.bind(this)
     this.waterPokePlant = this.waterPokePlant.bind(this)
+    this.deathProtocol = this.deathProtocol.bind(this)
   }
 
   addPoke(name, date, pokeImg) {
@@ -31,11 +33,17 @@ class App extends Component {
 
 
 waterPokePlant(newDate, id){
-  axios.put('api/pokeplants', {newDate, id})
+  axios.put('/api/pokeplants', {newDate, id})
   .then((res) => this.setState({pokePlants: res.data}))
 }
 
 
+deathProtocol (id) {
+  axios.delete(`/api/pokeplants/${id}`)
+  .then((res) => {
+    this.setState({pokePlants: res.data})
+  } )
+}
 
 
 render() {
@@ -47,7 +55,11 @@ render() {
         addPoke={this.addPoke} />
       <Display
         pokePlants={this.state.pokePlants}
-        waterPokePlant = {this.waterPokePlant} />
+        waterPokePlant = {this.waterPokePlant}
+        deathProtocol = {this.deathProtocol}
+         />
+         <Footer/>
+
     </div>
   );
 }
