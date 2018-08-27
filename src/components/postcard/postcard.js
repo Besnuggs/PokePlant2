@@ -62,7 +62,7 @@ class postcard extends Component {
 						let {newDate} = this.state
 						this.props.waterPokePlant(newDate, this.props.id)
 					}}
-					>water</button>
+					>watered on</button>
 					<input 
 					placeholder = 'Enter new date'
 					onChange = {this.newDate}

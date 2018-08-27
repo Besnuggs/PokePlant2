@@ -3,9 +3,13 @@
     left: 0;
     bottom: 0;
     width: 100vw;
-    height: 3.5vh;
+    height: 3vh;
     background-color: blue;
     color: white;
-    text-align: center
+    display: flex;
+    justify-content: center;
+    align-content: center
+
+
 
 }
