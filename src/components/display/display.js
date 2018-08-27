@@ -18,7 +18,6 @@ class display extends Component {
 
 
   render (props) {
-	  console.log(this.state)
 		let {pokePlants} = this.props
 		if (pokePlants.length > 0) {
 			let pokeTemplate = pokePlants.map((pokePlant, index) => {
@@ -31,6 +30,8 @@ class display extends Component {
 					pokePic = {this.state.pokeURL}
 					handleWaterClick = {this.handleWaterClick}
 					pokeImg = {pokeImg}
+					waterPokePlant = {this.props.waterPokePlant}
+					id = {pokePlant.id}
 					/>
 				)
 			})

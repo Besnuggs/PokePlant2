@@ -16,6 +16,7 @@ class App extends Component {
     }
 
     this.addPoke = this.addPoke.bind(this)
+    this.waterPokePlant = this.waterPokePlant.bind(this)
   }
 
   addPoke(name, date, pokeImg) {
@@ -23,18 +24,21 @@ class App extends Component {
       name: name,
       date: date,
       pokeImg: pokeImg
+    
     })
       .then((res) => this.setState({ pokePlants: res.data }))
   }
 
 
-
+waterPokePlant(newDate, id){
+  axios.put('api/pokeplants', {newDate, id})
+  .then((res) => this.setState({pokePlants: res.data}))
+}
 
 
 
 
 render() {
-  console.log('CL from app.js:', this.state)
   return (
     <div className="App">
       <Header />
@@ -42,7 +46,8 @@ render() {
         handleClick={this.handleClick}
         addPoke={this.addPoke} />
       <Display
-        pokePlants={this.state.pokePlants} />
+        pokePlants={this.state.pokePlants}
+        waterPokePlant = {this.waterPokePlant} />
     </div>
   );
 }

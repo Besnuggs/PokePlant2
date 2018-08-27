@@ -2,6 +2,9 @@ let pokePlantServer = [
 
 ]
 
+let id = 0
+
+
 module.exports = {
 
   read: (req, res) => {
@@ -10,18 +13,21 @@ module.exports = {
   },
 
   update: (req, res) => {
-      console.log('the water button fired')
-    let {newWateredDate} = req.body
-    pokePlantServer.push(newWateredDate)
-    res.status(200).send(pokePlantServer)
+      console.log('You watered your pokeplant')
+      let {newDate, id} = req.body
+      let pokeToUpdate = pokePlantServer.findIndex((e) => e.id === id)
+      pokePlantServer[pokeToUpdate].date = newDate
+      res.status(200).send(pokePlantServer)
+ 
   },
 
   create: (req, res) => {
       console.log ('Post Fired')
       let {name, date, pokeImg} =req.body
-      pokePlantServer.push({name, date, pokeImg})
+      pokePlantServer.push({name, date, pokeImg, id})
       console.log(pokePlantServer)
       res.status(200).send(pokePlantServer)
+      id++
 
   }
 

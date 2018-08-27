@@ -1,15 +1,18 @@
 import React, {Component} from 'react' 
 import './postcard.css'
 import axios from 'axios'
+import { version } from 'punycode';
 
 class postcard extends Component {
 	constructor (props) {
 		super (props)
 
 		this.state = {
-			pokeURL: ''
+			pokeURL: '',
+			newDate: ''
 		}
 		this.handleWaterClick = this.handleWaterClick.bind(this)
+		this.newDate = this.newDate.bind(this)
 		
 	}
 
@@ -25,7 +28,15 @@ class postcard extends Component {
 		.then()
 	}
 
+
+	newDate (val) {
+		this.setState({
+			newDate: val.target.value
+		})
+	}
+
 	render () {
+		let {newDateWatered} = this.state
 		return (
 			<div className = 'pokePostcard'>
 				<section id = 'top_section'>
@@ -44,9 +55,20 @@ class postcard extends Component {
 				</section>
 				<section id = 'bottom section'>
 					<button
-					onClick = {this.handleWaterClick}
+					onClick = {() => {
+						console.log('something')
+						console.log(this.state)
+						let {newDate} = this.state
+						this.props.waterPokePlant(newDate, this.props.id)
+					}}
 					>water</button>
-					<button>R.I.P</button>
+					<input 
+					placeholder = 'Enter new date'
+					onChange = {this.newDate}
+					/>
+					<button
+					onChange = {this.deathProtocol}
+					>R.I.P</button>
 				</section>
 			</div>
 		)
