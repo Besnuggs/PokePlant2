@@ -17,10 +17,19 @@ class postcard extends Component {
 	}
 
 	componentDidMount() {
+			console.log('has FIREEDifgoygfu')
 		axios.get(`http://pokeapi.co/api/v2/pokemon/${this.props.pokeImg}`)
 		.then((res) => {
 			this.setState({pokeURL: res.data.sprites.front_default})
 		})
+	}
+
+	componentDidUpdate(prevprops) {
+		if (prevprops.pokeImg !== this.props.pokeImg) {
+		axios.get(`http://pokeapi.co/api/v2/pokemon/${this.props.pokeImg}`)
+		.then((res) => {
+			this.setState({pokeURL: res.data.sprites.front_default})
+		})}
 	}
 
 	handleWaterClick () {

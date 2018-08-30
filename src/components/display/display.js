@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import './display.css'
 import Postcard from 
 '../postcard/postcard.js'
+import Footer from '../footer/footer.js'
 
 class display extends Component {
     constructor (props) {
@@ -23,23 +24,28 @@ class display extends Component {
 			let pokeTemplate = pokePlants.map((pokePlant, index) => {
 				let {name, date, pokeImg} = pokePlant
 				return (
-					<Postcard
-					key = {index}
-					name = {name}
-					date = {date}
-					pokePic = {this.state.pokeURL}
-					handleWaterClick = {this.handleWaterClick}
-					pokeImg = {pokeImg}
-					waterPokePlant = {this.props.waterPokePlant}
-					id = {pokePlant.id}
-					deathProtocol = {this.props.deathProtocol}
-					/>
+					<div>
+						<Postcard
+						key = {index}
+						name = {name}
+						date = {date}
+						pokePic = {this.state.pokeURL}
+						handleWaterClick = {this.handleWaterClick}
+						pokeImg = {pokeImg}
+						waterPokePlant = {this.props.waterPokePlant}
+						id = {pokePlant.id}
+						deathProtocol = {this.props.deathProtocol}
+						/>
+						<Footer/>
+						</div>
 				)
 			})
 			return pokeTemplate
 		}
 		else {
-			return (<div></div>)
+			return (<div>
+				<Footer/>
+			</div>)
 		}
 
 	}

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Header from './components/header/header.js'
 import Input from './components/Input/input.js'
 import Display from './components/display/display.js'
-import Footer from './components/footer/footer.js'
 import './reset.css'
 import './App.css';
 import axios from 'axios'
@@ -39,6 +38,7 @@ waterPokePlant(newDate, id){
 
 
 deathProtocol (id) {
+  console.log(this.state.pokePlants)
   axios.delete(`/api/pokeplants/${id}`)
   .then((res) => {
     this.setState({pokePlants: res.data})
@@ -47,6 +47,7 @@ deathProtocol (id) {
 
 
 render() {
+  console.log(this.state.pokePlants)
   return (
     <div className="App">
       <Header />
@@ -58,7 +59,7 @@ render() {
         waterPokePlant = {this.waterPokePlant}
         deathProtocol = {this.deathProtocol}
          />
-         <Footer/>
+         
 
     </div>
   );

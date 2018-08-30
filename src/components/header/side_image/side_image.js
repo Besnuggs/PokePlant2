@@ -1,9 +1,10 @@
 import React from 'react'
+import { prependOnceListener } from 'cluster';
 
-function side_image () {
+function side_image (props) {
     return (
         <div>
-            <img src="https://vignette.wikia.nocookie.net/videogames-fanon/images/4/44/Bulbasaur_Vines.png/revision/latest?cb=20150622002329" alt=""/>
+            <img src={props.img1} alt=""/>
         </div>
     )
 }
